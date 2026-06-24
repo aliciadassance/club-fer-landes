@@ -1,0 +1,87 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #0B1216;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: #33A7B4; color: #0B1216; }
+
+/* Nav link hover */
+.nav-link { transition: color 0.2s; }
+.nav-link:hover { color: #33A7B4 !important; }
+
+/* Footer links */
+.footer-link { transition: color 0.2s; }
+.footer-link:hover { color: #33A7B4 !important; }
+
+/* Card hover */
+.hover-teal { transition: border-color 0.2s; }
+.hover-teal:hover { border-color: #33A7B4 !important; }
+
+/* Social icons – dark bg */
+.social-icon { transition: color 0.2s, border-color 0.2s; }
+.social-icon:hover { color: #33A7B4 !important; border-color: #33A7B4 !important; }
+
+/* Social icons – light bg */
+.social-icon-light { transition: color 0.2s, border-color 0.2s; }
+.social-icon-light:hover { color: #15788A !important; border-color: #15788A !important; }
+
+/* Button base */
+.cfl-btn {
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+.cfl-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 26px -10px rgba(15,92,112,.6), 0 0 0 1px rgba(51,167,180,.18) !important;
+  filter: brightness(1.03) !important;
+}
+
+/* Primary button hover */
+.cfl-btn-primary:hover { background: #2a8c97 !important; border-color: #2a8c97 !important; }
+/* Atlantic button hover */
+.cfl-btn-atlantic:hover { background: #0d4f60 !important; border-color: #0d4f60 !important; }
+/* Outline button hover */
+.cfl-btn-outline:hover { color: #33A7B4 !important; border-color: #33A7B4 !important; }
+/* Ghost button hover */
+.cfl-btn-ghost:hover { background: rgba(51,167,180,.08) !important; color: #33A7B4 !important; }
+/* Light button hover */
+.cfl-btn-light:hover { background: #D6DEE0 !important; border-color: #D6DEE0 !important; }
+
+/* Scroll gallery scrollbar */
+.gallery-scroll::-webkit-scrollbar { height: 4px; }
+.gallery-scroll::-webkit-scrollbar-track { background: transparent; }
+.gallery-scroll::-webkit-scrollbar-thumb { background: rgba(94,118,128,.3); border-radius: 2px; }
+
+/* Form elements */
+input, select, textarea {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+  color: #1A2024;
+  background: #FFFFFF;
+  border: 1px solid rgba(26,32,36,.18);
+  border-radius: 5px;
+  padding: 13px 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #33A7B4;
+  box-shadow: 0 0 0 3px rgba(51,167,180,.12);
+}
+select { appearance: none; }
+textarea { resize: vertical; }
+
+/* Reveal animation */
+[data-rv] {
+  transition: opacity 0.7s ease, transform 0.75s cubic-bezier(0.2,0.7,0.2,1);
+}
