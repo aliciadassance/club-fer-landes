@@ -1,6 +1,5 @@
 import { CflButton } from '../components/CflButton';
-import { PriceCard } from '../components/PriceCard';
-import { DISCIPLINES, BENEFITS, HOME_TIERS, GALLERY_URLS } from '../data';
+import { DISCIPLINES, BENEFITS, ABONNEMENTS, ALACARTE } from '../data';
 
 const MONO: React.CSSProperties = { fontFamily: "'Space Mono', monospace" };
 const ANTON: React.CSSProperties = { fontFamily: "'Anton', sans-serif", fontWeight: 400 };
@@ -16,16 +15,16 @@ export function Accueil({ isMobile }: AccueilProps) {
         data-rv
         style={{
           position: 'relative',
-          minHeight: '90vh',
+          minHeight: '100vh',
           display: 'flex',
-          alignItems: 'flex-end',
+          alignItems: 'center',
           borderBottom: '1px solid rgba(94,118,128,.18)',
           background: "linear-gradient(180deg,rgba(11,18,22,.32) 0%,rgba(11,18,22,.5) 45%,rgba(11,18,22,.96) 100%),url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1600&q=75')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div style={{ maxWidth: '1240px', margin: '0 auto', width: '100%', padding: 'clamp(48px,7vw,110px) clamp(20px,5vw,80px)' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto', width: '100%', padding: 'clamp(24px,4vw,64px) clamp(20px,5vw,80px)' }}>
           <div style={{ maxWidth: '900px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '11px', ...MONO, fontSize: '12px', letterSpacing: '.22em', textTransform: 'uppercase', color: '#EAF6F7', background: 'rgba(11,18,22,.5)', backdropFilter: 'blur(6px)', border: '1px solid rgba(51,167,180,.45)', borderRadius: '100px', padding: '8px 16px' }}>
               <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#33A7B4', boxShadow: '0 0 0 4px rgba(51,167,180,.18)' }} />
@@ -60,8 +59,8 @@ export function Accueil({ isMobile }: AccueilProps) {
             <span style={{ width: '34px', height: '1px', background: '#33A7B4', opacity: .7 }} />
             Trois disciplines, un seul club
           </div>
-          <h2 style={{ ...ANTON, fontSize: 'clamp(34px,5.5vw,72px)', lineHeight: '.92', textTransform: 'uppercase', color: '#F0F3F3', margin: '16px 0 0' }}>
-            Force · Endurance<br />· Ride
+          <h2 style={{ ...ANTON, fontSize: 'clamp(28px,4.2vw,60px)', lineHeight: '.92', textTransform: 'uppercase', color: '#F0F3F3', margin: '16px 0 0', whiteSpace: 'nowrap' }}>
+            Force · Endurance · Ride
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,280px),1fr))', gap: '18px', marginTop: '48px' }}>
             {DISCIPLINES.map((d) => (
@@ -103,7 +102,7 @@ export function Accueil({ isMobile }: AccueilProps) {
               On ne se disperse pas. On programme, on exécute, on mesure — et on recommence un cran plus haut.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,220px),1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2,1fr)', gap: '16px' }}>
             {BENEFITS.map((b) => (
               <div key={b.title} style={{ border: '1px solid rgba(26,32,36,.1)', borderRadius: '6px', padding: '24px 22px', background: '#FBF7EF' }}>
                 <i className={b.icon} style={{ fontSize: '30px', color: '#15788A' }} />
@@ -119,51 +118,61 @@ export function Accueil({ isMobile }: AccueilProps) {
       <section data-rv style={{ padding: 'clamp(70px,10vw,130px) clamp(20px,5vw,80px)' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '20px' }}>
-            <div>
-              <div style={{ ...MONO, fontSize: '12px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#33A7B4', display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <span style={{ width: '34px', height: '1px', background: '#33A7B4', opacity: .7 }} />
-                Tarifs
-              </div>
-              <h2 style={{ ...ANTON, fontSize: 'clamp(34px,5.5vw,72px)', lineHeight: '.92', textTransform: 'uppercase', color: '#F0F3F3', margin: '16px 0 0' }}>
-                Choisis<br />ton rythme
-              </h2>
+            <div style={{ ...MONO, fontSize: '12px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#33A7B4', display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <span style={{ width: '34px', height: '1px', background: '#33A7B4', opacity: .7 }} />
+              Tarifs
             </div>
             <CflButton label="Tous les tarifs" href="#tarifs" variant="ghost" icon="arrow-right" iconRight />
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,250px),1fr))', gap: '18px', marginTop: '46px' }}>
-            {HOME_TIERS.map((t) => (
-              <PriceCard key={t.name} {...t} href="#inscription" />
-            ))}
-          </div>
-        </div>
-      </section>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,340px),1fr))', gap: '40px', marginTop: '46px', alignItems: 'start' }}>
 
-      {/* GALLERY STRIP */}
-      <section data-rv style={{ padding: 'clamp(40px,6vw,80px) 0', background: '#F1EBDF', borderTop: '1px solid rgba(94,118,128,.16)', overflow: 'hidden' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 clamp(20px,5vw,80px)', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '16px', marginBottom: '26px' }}>
-          <div>
-            <div style={{ ...MONO, fontSize: '12px', letterSpacing: '.28em', textTransform: 'uppercase', color: '#15788A' }}>@clubferlandes</div>
-            <h2 style={{ ...ANTON, fontSize: 'clamp(26px,3.6vw,44px)', lineHeight: '.95', textTransform: 'uppercase', color: '#1A2024', margin: '10px 0 0' }}>Le club en images</h2>
+            {/* Abonnements column */}
+            <div>
+              <h3 style={{ ...ANTON, fontSize: 'clamp(30px,4vw,52px)', lineHeight: '.88', textTransform: 'uppercase', color: '#33A7B4', marginBottom: '20px' }}>
+                Abonnements
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {ABONNEMENTS.map((t) => (
+                  <div key={t.name} style={{ position: 'relative', overflow: 'hidden', padding: '24px 22px', background: t.featured ? 'linear-gradient(180deg,#16252c,#0e1a20)' : '#142127', border: t.featured ? '1.5px solid #33A7B4' : '1px solid rgba(94,118,128,.18)', borderRadius: '6px' }}>
+                    {t.badge && (
+                      <div style={{ position: 'absolute', top: 0, right: 0, background: t.featured ? '#33A7B4' : 'rgba(51,167,180,.15)', color: t.featured ? '#0B1216' : '#33A7B4', border: t.featured ? 'none' : '1px solid rgba(51,167,180,.35)', ...MONO, fontSize: '9px', letterSpacing: '.16em', textTransform: 'uppercase', padding: '5px 10px', borderBottomLeftRadius: '6px' }}>{t.badge}</div>
+                    )}
+                    <div style={{ ...MONO, fontSize: '10px', letterSpacing: '.22em', textTransform: 'uppercase', color: t.featured ? '#33A7B4' : '#5E7680' }}>{t.name}</div>
+                    <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', marginTop: '14px' }}>
+                      <span style={{ ...ANTON, fontSize: '46px', lineHeight: '.85', color: '#F0F3F3' }}>{t.price}</span>
+                      <span style={{ ...OSWALD, fontWeight: 600, fontSize: '18px', color: '#9DAFB6', paddingBottom: '4px' }}>{t.unit}</span>
+                    </div>
+                    <div style={{ ...OSWALD, fontWeight: 500, fontSize: '12px', letterSpacing: '.06em', textTransform: 'uppercase', color: '#5E7680', marginTop: '6px' }}>{t.period}</div>
+                    <div style={{ fontSize: '13px', color: '#9DAFB6', marginTop: '12px', lineHeight: '1.45' }}>{t.note}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* À la carte column */}
+            <div>
+              <h3 style={{ ...ANTON, fontSize: 'clamp(30px,4vw,52px)', lineHeight: '.88', textTransform: 'uppercase', color: '#F0F3F3', marginBottom: '20px' }}>
+                À la carte
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {ALACARTE.map((t) => (
+                  <div key={t.name} style={{ position: 'relative', overflow: 'hidden', padding: '24px 22px', background: '#142127', border: '1px solid rgba(94,118,128,.18)', borderRadius: '6px' }}>
+                    {t.badge && (
+                      <div style={{ position: 'absolute', top: 0, right: 0, background: 'rgba(51,167,180,.15)', color: '#33A7B4', border: '1px solid rgba(51,167,180,.35)', ...MONO, fontSize: '9px', letterSpacing: '.16em', textTransform: 'uppercase', padding: '5px 10px', borderBottomLeftRadius: '6px' }}>{t.badge}</div>
+                    )}
+                    <div style={{ ...MONO, fontSize: '10px', letterSpacing: '.22em', textTransform: 'uppercase', color: '#5E7680' }}>{t.name}</div>
+                    <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', marginTop: '14px' }}>
+                      <span style={{ ...ANTON, fontSize: '46px', lineHeight: '.85', color: '#F0F3F3' }}>{t.price}</span>
+                      <span style={{ ...OSWALD, fontWeight: 600, fontSize: '18px', color: '#9DAFB6', paddingBottom: '4px' }}>{t.unit}</span>
+                    </div>
+                    <div style={{ ...OSWALD, fontWeight: 500, fontSize: '12px', letterSpacing: '.06em', textTransform: 'uppercase', color: '#5E7680', marginTop: '6px' }}>{t.period}</div>
+                    <div style={{ fontSize: '13px', color: '#9DAFB6', marginTop: '12px', lineHeight: '1.45' }}>{t.note}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
-          <CflButton label="Suivre sur Instagram" href="#club" variant="atlantic" size="sm" icon="brand-instagram" />
-        </div>
-        <div className="gallery-scroll" style={{ display: 'flex', gap: '10px', padding: '0 clamp(20px,5vw,80px)', overflowX: 'auto' }}>
-          {GALLERY_URLS.map((g, i) => (
-            <div
-              key={i}
-              style={{
-                flex: '0 0 auto',
-                width: 'clamp(180px,24vw,280px)',
-                aspectRatio: '1',
-                borderRadius: '5px',
-                overflow: 'hidden',
-                border: '1px solid rgba(94,118,128,.2)',
-                backgroundImage: `linear-gradient(180deg,rgba(11,18,22,.05),rgba(11,18,22,.45)),url('${g}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            />
-          ))}
         </div>
       </section>
 

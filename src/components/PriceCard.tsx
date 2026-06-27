@@ -5,7 +5,7 @@ interface PriceCardProps extends Tier {
   href?: string;
 }
 
-export function PriceCard({ name, price, unit, period, note, cta, href = '#inscription', featured, features }: PriceCardProps) {
+export function PriceCard({ name, price, unit, period, note, cta, href = '#inscription', featured, badge, features }: PriceCardProps) {
   const cardStyle: React.CSSProperties = {
     position: 'relative',
     display: 'flex',
@@ -28,15 +28,17 @@ export function PriceCard({ name, price, unit, period, note, cta, href = '#inscr
 
   return (
     <div style={cardStyle}>
-      {featured && (
+      {badge && (
         <div style={{
           position: 'absolute', top: 0, right: 0,
-          background: '#33A7B4', color: '#0B1216',
+          background: featured ? '#33A7B4' : 'rgba(51,167,180,.15)',
+          color: featured ? '#0B1216' : '#33A7B4',
+          border: featured ? 'none' : '1px solid rgba(51,167,180,.35)',
           fontFamily: "'Space Mono', monospace", fontSize: '10px',
           letterSpacing: '.16em', textTransform: 'uppercase',
           padding: '6px 12px', borderBottomLeftRadius: '6px',
         }}>
-          Le plus choisi
+          {badge}
         </div>
       )}
 

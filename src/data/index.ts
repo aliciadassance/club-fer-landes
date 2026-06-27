@@ -47,23 +47,27 @@ export interface Tier {
   note: string;
   cta: string;
   featured: boolean;
+  badge?: string;
   features: string[];
 }
 
 export const TIERS: Tier[] = [
-  { name: "Séance à l'unité", price: '25', unit: '€', period: 'la séance', note: 'Pour tester ou pratiquer à la carte.', cta: 'Réserver', featured: false, features: ['1 séance prépa ou surf', 'Sans engagement', 'Matériel fourni', 'Réservation en ligne'] },
-  { name: 'Carnet 10', price: '220', unit: '€', period: 'soit 22€ / séance', note: 'Le bon rythme pour progresser sur la durée.', cta: 'Choisir le carnet', featured: true, features: ['10 séances au choix', 'Valable 4 mois', 'Prépa physique + surf', 'Suivi de progression'] },
-  { name: 'Carnet 20', price: '400', unit: '€', period: 'soit 20€ / séance', note: 'Pour les pratiquants réguliers.', cta: 'Choisir le carnet', featured: false, features: ['20 séances au choix', 'Valable 8 mois', 'Accès prioritaire', 'Bilan trimestriel'] },
-  { name: 'Abonnement annuel', price: '1290', unit: '€', period: 'par an · illimité', note: "L'engagement complet, toute l'année.", cta: 'Rejoindre le club', featured: false, features: ['Séances illimitées', 'Prépa + surf + mobilité', 'Suivi 1:1 mensuel', 'Événements club inclus'] },
+  { name: "Séance à l'unité", price: '20', unit: '€', period: 'la séance', note: 'Pour découvrir ou pratiquer à la carte, sans engagement.', cta: 'Réserver', featured: false, features: ['1 séance au choix', 'Prépa physique ou surf ou endurance', 'Sans engagement', 'Matériel fourni'] },
+  { name: 'Carnet 10 séances', price: '180', unit: '€', period: 'soit 18€ / séance', note: 'Pratique flexible — à utiliser quand tu veux.', cta: 'Choisir le carnet', featured: false, badge: 'Populaire', features: ['10 séances au choix', 'Accès à toutes les disciplines', 'Matériel fourni', 'Suivi de progression'] },
+  { name: 'Abonnement Essentiel', price: '70', unit: '€', period: '/ mois · 1 séance / semaine', note: "La formule idéale pour s'installer dans un rythme et progresser régulièrement.", cta: 'Rejoindre le club', featured: true, badge: 'Le plus choisi', features: ['1 séance par semaine', 'Accès à toutes les disciplines', 'Matériel fourni', 'Suivi de progression'] },
+  { name: 'Abonnement Intensif', price: '120', unit: '€', period: '/ mois · 2 séances / semaine', note: 'Pour ceux qui veulent accélérer leur progression.', cta: 'Rejoindre le club', featured: false, features: ['2 séances par semaine', 'Accès à toutes les disciplines', 'Matériel fourni', 'Suivi de progression'] },
 ];
 
-export const HOME_TIERS = [TIERS[0], TIERS[1], TIERS[3]];
+export const ABONNEMENTS = [TIERS[2], TIERS[3]];
+export const ALACARTE    = [TIERS[0], TIERS[1]];
+export const HOME_TIERS  = [TIERS[0], TIERS[2], TIERS[3]];
 
 export const FAQ = [
   { n: '01', q: 'Faut-il déjà savoir surfer ?', a: "Non. Les créneaux Ride sont adaptés au niveau — du premier pop-up à la performance. La prépa physique se fait sans pré-requis." },
   { n: '02', q: 'Comment réserver une séance ?', a: "Chaque créneau se réserve en ligne. Les places sont limitées par groupe, on conseille de réserver à l'avance." },
-  { n: '03', q: 'Les carnets ont-ils une durée de validité ?', a: "Oui : 4 mois pour le carnet 10, 8 mois pour le carnet 20. De quoi pratiquer à ton rythme sans pression." },
+  { n: '03', q: 'Y a-t-il des disciplines réservées à certains tarifs ?', a: "Non. Tous les tarifs — séance à l'unité, carnet ou abonnement — donnent accès à l'ensemble des disciplines : prépa physique, endurance et surf. Tu choisis ta séance librement." },
   { n: '04', q: 'Le matériel est-il fourni ?', a: "Le matériel de prépa physique est fourni. Pour le surf, une combinaison et une planche peuvent être prêtées sur demande." },
+  { n: '05', q: "Pourquoi choisir l'abonnement plutôt que le carnet ?", a: "L'abonnement à 70 €/mois (1 séance par semaine) installe un rythme fixe : c'est la régularité qui fait progresser. Le carnet de 10 séances à 180 € est idéal si ton planning est irrégulier." },
 ];
 
 export const GALLERY_URLS = [

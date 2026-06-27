@@ -29,7 +29,7 @@ export function LeClub({ isMobile }: LeClubProps) {
               Le club
             </div>
             <h1 style={{ ...ANTON, fontSize: 'clamp(44px,8vw,104px)', lineHeight: '.86', textTransform: 'uppercase', margin: '20px 0 0', letterSpacing: '-.012em', textShadow: '0 2px 36px rgba(11,18,22,.55)' }}>
-              <span style={{ display: 'block', color: '#F0F3F3' }}>Né de la</span>
+              <span style={{ display: 'block', color: '#F0F3F3', marginBottom: '14px' }}>Né de la</span>
               <span style={{ display: 'block', color: '#33A7B4' }}>côte landaise</span>
             </h1>
             <p style={{ fontSize: 'clamp(16px,1.6vw,19px)', color: '#D6DEE0', maxWidth: '52ch', marginTop: '24px' }}>

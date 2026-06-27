@@ -1,5 +1,5 @@
 import { CflButton } from '../components/CflButton';
-import { PILLARS, FORMATS, METHOD_STEPS } from '../data';
+import { FORMATS, METHOD_STEPS } from '../data';
 
 const MONO: React.CSSProperties = { fontFamily: "'Space Mono', monospace" };
 const ANTON: React.CSSProperties = { fontFamily: "'Anton', sans-serif", fontWeight: 400 };
@@ -29,7 +29,7 @@ export function Entrainements({ isMobile }: EntrainementsProps) {
               Philosophie &amp; entraînements
             </div>
             <h1 style={{ ...ANTON, fontSize: 'clamp(44px,8vw,104px)', lineHeight: '.86', textTransform: 'uppercase', margin: '20px 0 0', letterSpacing: '-.012em', textShadow: '0 2px 36px rgba(11,18,22,.55)' }}>
-              <span style={{ display: 'block', color: '#F0F3F3' }}>Forgé par</span>
+              <span style={{ display: 'block', color: '#F0F3F3', marginBottom: '14px' }}>Forgé par</span>
               <span style={{ display: 'block', color: '#33A7B4' }}>l'Atlantique</span>
             </h1>
             <p style={{ fontSize: 'clamp(16px,1.6vw,19px)', color: '#D6DEE0', maxWidth: '52ch', marginTop: '24px' }}>
@@ -43,14 +43,18 @@ export function Entrainements({ isMobile }: EntrainementsProps) {
         </div>
       </header>
 
-      {/* MANIFESTO */}
+      {/* PRÉPA PHYSIQUE */}
       <section data-rv style={{ padding: 'clamp(60px,8vw,110px) clamp(20px,5vw,80px)', background: '#F1EBDF', borderTop: '1px solid rgba(94,118,128,.16)', borderBottom: '1px solid rgba(94,118,128,.16)' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: manifestoCols, gap: 'clamp(32px,5vw,80px)', alignItems: 'start' }}>
           <p style={{ ...OSWALD, fontWeight: 300, fontSize: 'clamp(22px,3vw,38px)', lineHeight: '1.2', color: '#1A2024' }}>
-            <span style={{ color: '#15788A', fontWeight: 600 }}>Fer.</span> La dureté du métal, la discipline de l'entraînement, la matière qu'on travaille au feu. Le club place le corps là où l'acier forgé rencontre l'océan.
+            <span style={{ color: '#15788A', fontWeight: 600 }}>Préparation physique.</span> Placeholder — décrivez ici l'approche du club : une préparation exigeante, adaptée à chaque discipline, pour progresser dans la durée.
           </p>
           <div style={{ borderTop: '1px solid rgba(26,32,36,.14)' }}>
-            {PILLARS.map((p) => (
+            {[
+              { n: '01', title: 'Préparation physique Surf', text: "Placeholder — explosivité, endurance de rame, gainage et mobilité spécifiques à la pratique du surf en conditions réelles." },
+              { n: '02', title: 'Préparation physique Sauvetage côtier', text: "Placeholder — endurance et puissance pour les interventions en mer, résistance sous effort, gestion du stress physique." },
+              { n: '03', title: 'Séances non spécifiques', text: "Placeholder — force générale, cardio et mobilité pour tous les pratiquants, quelle que soit leur discipline principale." },
+            ].map((p) => (
               <div key={p.n} style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '18px', padding: '20px 0', borderBottom: '1px solid rgba(26,32,36,.14)', alignItems: 'baseline' }}>
                 <span style={{ ...MONO, fontSize: '12px', color: '#15788A' }}>{p.n}</span>
                 <div>
